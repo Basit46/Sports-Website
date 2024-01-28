@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="flex-1 bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px]">
         <p className="font-[600] text-center">Live Match</p>
         <p className="text-center text-[14px] font-medium text-[#14FF00]">
-          62 : 24
+          62 : 25
         </p>
 
         <div className="my-[20px] flex justify-between items-center">
