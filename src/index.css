@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #212227;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+@layer components {
+  .nav2 ul li {
+    @apply flex gap-[16px] items-center;
+  }
+
+  .matches ul li {
+    @apply relative px-[20px] text-gray  hover:text-white cursor-pointer;
+  }
+  .matches ul li:hover::after {
+    @apply font-[500];
+  }
+  .match td {
+    @apply py-[16px] px-[24px];
+  }
+  .standings table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+  }
+  .standings table th {
+    @apply text-gray p-[8px];
+  }
+  .standing {
+    @apply mb-[20px] rounded-[8px];
+  }
+  .standing td {
+    @apply py-[16px] px-[8px];
+  }
+  .news ul li {
+    @apply relative px-[20px] text-gray  hover:text-white cursor-pointer;
+  }
+  .news ul li:hover::after {
+    @apply font-[500];
+  }
+}
+
+.matches ul li:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 4px solid #5742a9;
+  margin-top: 17px;
+}
+
+.news ul li:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 4px solid #f5c451;
+  margin-top: 17px;
+}

@@ -1,0 +1,3 @@
+type StatProgressPropType = {
+  isHome: boolean;
+};

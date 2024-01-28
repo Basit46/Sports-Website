@@ -1,0 +1,10 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon" clip-path="url(#clip0_183_1011)">
+<path id="Vector" d="M22 8.99401C22.0005 8.20621 21.8456 7.42605 21.5442 6.69819C21.2428 5.97034 20.8008 5.30909 20.2435 4.75231C19.6861 4.19553 19.0244 3.75416 18.2963 3.45348C17.5681 3.15279 16.7878 2.99869 16 3.00001L8 3.00001C4.687 3.00001 2 5.69501 2 8.99401L2 21L16 21C19.313 21 22 18.305 22 15.006V8.99401ZM10 11V13H8V11H10ZM16 11V13L14 13V11L16 11Z" fill="#A4A4A4"/>
+</g>
+<defs>
+<clipPath id="clip0_183_1011">
+<rect width="24" height="24" fill="white" transform="matrix(-1 0 0 1 24 0)"/>
+</clipPath>
+</defs>
+</svg>
