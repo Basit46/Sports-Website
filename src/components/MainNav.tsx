@@ -2,11 +2,11 @@ import menu from "../assets/menu.svg";
 import hot from "../assets/hot.svg";
 import trending from "../assets/trending.svg";
 import more from "../assets/more.svg";
-import soccer from "../assets/soccer.svg";
-import basketb from "../assets/basketb.svg";
-import snooker from "../assets/snooker.svg";
-import tennis from "../assets/tennis.svg";
-import cycling from "../assets/cycling.svg";
+// import soccer from "../assets/soccer.svg";
+// import basketb from "../assets/basketb.svg";
+// import snooker from "../assets/snooker.svg";
+// import tennis from "../assets/tennis.svg";
+// import cycling from "../assets/cycling.svg";
 import info from "../assets/info.svg";
 import ccare from "../assets/ccare.svg";
 
@@ -21,7 +21,7 @@ const MainNav = () => {
           <img src={trending} alt="nav icon" />
           <img src={more} alt="nav icon" />
         </div>
-
+        {/* 
         <div className="my-[56px] w-full h-0 border-[0.5px] border-[#A4A4A4]"></div>
 
         <div className="flex flex-col gap-[32px]">
@@ -30,7 +30,7 @@ const MainNav = () => {
           <img src={snooker} alt="nav icon" />
           <img src={tennis} alt="nav icon" />
           <img src={cycling} alt="nav icon" />
-        </div>
+        </div> */}
       </div>
 
       <div className="flex flex-col gap-[32px]">

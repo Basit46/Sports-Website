@@ -1,5 +1,5 @@
 import {
-  DashboardSvg,
+  // DashboardSvg,
   HighlightsSvg,
   LiveSvg,
   NewsSvg,
@@ -7,7 +7,7 @@ import {
   StandingsSvg,
 } from "../assets/editable-svgs";
 import logo from "../assets/logo.png";
-import plLogo from "../assets/pl.png";
+// import plLogo from "../assets/pl.png";
 import chelsea from "../assets/chelsea.png";
 import { FaStar } from "react-icons/fa";
 
@@ -21,10 +21,10 @@ const SecondNav = () => {
 
       <h1 className="mt-[73px] mb-[40px] text-gray text-sm">MENU</h1>
       <ul className="menu flex flex-col gap-[24px]">
-        <li>
+        {/* <li>
           <DashboardSvg active={false} />
           <p className="text-gray">Dashboard</p>
-        </li>
+        </li> */}
         <li>
           <LiveSvg active={false} />
           <p className="text-gray">Live Football</p>
@@ -47,7 +47,7 @@ const SecondNav = () => {
         </li>
       </ul>
 
-      <h1 className="my-[40px] text-gray text-sm">FOOTBALL LEAGUE</h1>
+      {/* <h1 className="my-[40px] text-gray text-sm">FOOTBALL LEAGUE</h1>
       <ul className="leagues flex flex-col gap-[24px]">
         <li>
           <img src={plLogo} alt="league logo" />
@@ -69,7 +69,7 @@ const SecondNav = () => {
           <img src={plLogo} alt="league logo" />
           <p>Seria A</p>
         </li>
-      </ul>
+      </ul> */}
 
       <h1 className="my-[40px] text-gray text-sm">FAVOURITE CLUB</h1>
       <ul className="clubs flex flex-col gap-[24px]">
@@ -80,14 +80,14 @@ const SecondNav = () => {
         </li>
         <li>
           <img src={chelsea} alt="league logo" />
-          <p>Mamchester City</p>
+          <p>Manchester City</p>
           <FaStar className="text-[gold] ml-auto" />
         </li>
-        <li>
+        {/* <li>
           <img src={chelsea} alt="league logo" />
           <p>Bayern Munchen</p>
           <FaStar className="text-[gold] ml-auto" />
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
