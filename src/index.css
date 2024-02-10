@@ -16,10 +16,20 @@ body {
   }
 
   .matches ul li {
-    @apply relative px-[20px] text-gray  hover:text-white cursor-pointer;
+    @apply relative px-[20px] text-gray cursor-pointer;
   }
-  .matches ul li:hover::after {
-    @apply font-[500];
+  .matches ul li.active {
+    @apply font-[500] text-white;
+  }
+  .matches ul li.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 4px solid #5742a9;
+    margin-top: 17px;
   }
   .match td {
     @apply py-[16px] px-[24px];
@@ -43,17 +53,6 @@ body {
   .news ul li:hover::after {
     @apply font-[500];
   }
-}
-
-.matches ul li:hover::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-bottom: 4px solid #5742a9;
-  margin-top: 17px;
 }
 
 .news ul li:hover::after {
