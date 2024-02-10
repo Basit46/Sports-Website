@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import pl from "../assets/pl.png";
 
 import {
   MdKeyboardArrowDown,
