@@ -53,6 +53,15 @@ body {
   .news ul li:hover::after {
     @apply font-[500];
   }
+  .leagues-dropdown {
+    @apply py-[5px] flex flex-col gap-[8px];
+  }
+  .leagues-dropdown span {
+    @apply flex gap-[20px] items-center cursor-pointer  hover:underline;
+  }
+  .leagues-dropdown span img {
+    @apply w-[24px];
+  }
 }
 
 .news ul li:hover::after {
