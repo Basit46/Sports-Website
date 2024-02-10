@@ -4,11 +4,7 @@ import { LeagueCodes, fetchDataForLeagues } from "../utils/fetchDataforLeagues";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { Calendar } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import {
-  formatDate,
-  formatDateForCal,
-  formatDateForUrl,
-} from "../utils/formatDate";
+import { formatDateForCal, formatDateForUrl } from "../utils/formatDate";
 ``;
 
 const Matches = () => {

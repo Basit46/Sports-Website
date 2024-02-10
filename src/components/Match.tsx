@@ -1,4 +1,3 @@
-import { CiCircleInfo } from "react-icons/ci";
 import { IoIosTrendingUp } from "react-icons/io";
 import { splitTeams } from "../utils/splitTeams";
 import { formatDate } from "../utils/formatDate";
@@ -68,7 +67,6 @@ const Match = ({ match, index }: { match: any; index: number }) => {
       </td>
 
       <td valign="middle" className="flex items-center gap-[16px]">
-        {/* <CiCircleInfo className="text-[24px] text-[#A4A4A4]" /> */}
         <IoIosTrendingUp className="border-l border-b pl-[4px] pb-[4px] border-[#A4A4A4] text-[24px] text-[#A4A4A4]" />
       </td>
     </tr>
