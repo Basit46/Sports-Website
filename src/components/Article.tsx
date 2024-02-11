@@ -2,8 +2,8 @@ import articleImg from "../assets/articleImg.png";
 
 const Article = ({ article }: { article: any }) => {
   return (
-    <div className="w-[244px]">
-      <div className="w-full h-[176px] rounded-[16px] overflow-hidden">
+    <div className="w-[225px]">
+      <div className="w-full h-[156px] rounded-[16px] overflow-hidden">
         <img
           className="h-full w-full object-cover"
           src={article?.images[0]?.url || articleImg}
@@ -17,7 +17,7 @@ const Article = ({ article }: { article: any }) => {
         {article?.headline}
       </p>
       <p className="text-[14px] text-[#A4A4A4] leading-[16.8px]">
-        {article?.description}
+        {article?.description.slice(0, 80)}...
       </p>
     </div>
   );

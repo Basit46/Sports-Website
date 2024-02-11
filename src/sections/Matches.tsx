@@ -5,7 +5,6 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { Calendar } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { formatDateForCal, formatDateForUrl } from "../utils/formatDate";
-``;
 
 const Matches = () => {
   const [date, setDate] = useState(new Date());
@@ -15,8 +14,7 @@ const Matches = () => {
   const [showCalendarDate, setShowCalendarDate] = useState(false);
 
   useEffect(() => {
-    const currentDate = new Date();
-    fetchGamesForDate(currentDate);
+    fetchGamesForDate(new Date());
   }, []);
 
   const fetchGamesForDate = (theDate: Date) => {

@@ -1,4 +1,4 @@
-export const splitTeams = (teams: string) => {
+export const splitTeams = (teams: any) => {
   const [awayTeam, homeTeam] = teams.split(" at ");
   return [awayTeam, homeTeam];
 };
