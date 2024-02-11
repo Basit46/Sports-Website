@@ -14,7 +14,7 @@ const Article = ({ article }: { article: any }) => {
         {article?.categories[1].description}
       </p>
       <p className="font-medium mb-[8px] leading-[22.4px]">
-        {article.headline}
+        {article?.headline}
       </p>
       <p className="text-[14px] text-[#A4A4A4] leading-[16.8px]">
         {article?.description}
