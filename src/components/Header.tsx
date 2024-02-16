@@ -3,7 +3,7 @@ import noti from "../assets/noti.svg";
 
 const Header = () => {
   return (
-    <div className="bg-[#1B1C21] border-b border-b-[#313131] py-[16px] px-[24px] flex justify-between">
+    <div className="sticky top-0 z-[20] bg-[#1B1C21] border-b border-b-[#313131] py-[16px] px-[24px] flex justify-between">
       <div className="w-[50%] bg-[#2E3034] py-[10px] px-[8px] flex  items-center gap-[8px] rounded-[6px]">
         <img src={search} alt="search icon" />
         <input

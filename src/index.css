@@ -74,3 +74,11 @@ body {
   border-bottom: 4px solid #f5c451;
   margin-top: 17px;
 }
+
+.article-story a {
+  color: rgb(119, 119, 240);
+  cursor: pointer;
+}
+.article-story .line {
+  margin-top: 10px;
+}

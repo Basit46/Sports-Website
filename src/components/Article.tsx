@@ -1,8 +1,12 @@
 import articleImg from "../assets/articleImg.png";
+import { Link } from "react-router-dom";
 
 const Article = ({ article }: { article: any }) => {
   return (
-    <div className="w-[225px]">
+    <Link
+      to={`articles/${article?.dataSourceIdentifier}/${article?.headline}`}
+      className="w-[225px]"
+    >
       <div className="w-full h-[156px] rounded-[16px] overflow-hidden">
         <img
           className="h-full w-full object-cover"
@@ -19,7 +23,7 @@ const Article = ({ article }: { article: any }) => {
       <p className="text-[14px] text-[#A4A4A4] leading-[16.8px]">
         {article?.description.slice(0, 80)}...
       </p>
-    </div>
+    </Link>
   );
 };
 

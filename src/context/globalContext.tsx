@@ -29,7 +29,9 @@ const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
     )
       .then((results) => {
         const allArticles: any = results.flat();
-        setArticles(allArticles);
+        setArticles(
+          allArticles.filter((article: any) => article.type != "Media")
+        );
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);

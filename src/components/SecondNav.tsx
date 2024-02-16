@@ -1,5 +1,4 @@
 import {
-  // DashboardSvg,
   HighlightsSvg,
   LiveSvg,
   NewsSvg,
@@ -7,17 +6,17 @@ import {
   StandingsSvg,
 } from "../assets/editable-svgs";
 import logo from "../assets/logo.png";
-// import plLogo from "../assets/pl.png";
 import chelsea from "../assets/chelsea.png";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SecondNav = () => {
   return (
     <nav className="nav2 bg-[#1B1C21] flex-1 border-x border-x-[#313131] pt-[24px] pb-[28px] px-[24px]">
-      <span className="flex items-center gap-[8px]">
+      <Link to="/" className="flex items-center gap-[8px]">
         <img src={logo} alt="logo" />
         <h1>Onesport</h1>
-      </span>
+      </Link>
 
       <h1 className="mt-[73px] mb-[40px] text-gray text-sm">MENU</h1>
       <ul className="menu flex flex-col gap-[24px]">
