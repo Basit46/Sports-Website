@@ -19,7 +19,7 @@ const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
       mainLeagues.map((league) =>
         axios
           .get(
-            `http://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/news`
+            `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/news`
           )
           .then((res) => {
             return res.data.articles;
