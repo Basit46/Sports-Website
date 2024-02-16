@@ -1,6 +1,4 @@
 import search from "../assets/search.svg";
-import cart from "../assets/cart.svg";
-import theme from "../assets/theme.svg";
 import noti from "../assets/noti.svg";
 
 const Header = () => {
@@ -21,9 +19,7 @@ const Header = () => {
         </button>
 
         <span className="flex items-center gap-[16px]">
-          <img src={cart} alt="icon" />
           <img src={noti} alt="icon" />
-          <img src={theme} alt="icon" />
         </span>
 
         <div className="w-[36px] h-[36px] rounded-full bg-pink-600"></div>

@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import StatProgress from "../components/StatProgress";
 import { formatDateForUrl } from "../utils/formatDate";
 import { LeagueCodes, fetchDataForLeagues } from "../utils/fetchDataforLeagues";
+import { useGlobalContext } from "../context/globalContext";
 
 const Hero = () => {
+  const { article } = useGlobalContext();
+
   const [match, setMatch] = useState<any>();
   useEffect(() => {
     fetchGamesForDate(new Date());
@@ -32,7 +35,22 @@ const Hero = () => {
 
   return (
     <section className="h-[356px] flex gap-[24px]">
-      <div className="bg-red-800 w-[65%] rounded-[16px]"></div>
+      <div className="relative w-[65%] rounded-[16px] overflow-hidden">
+        <img
+          className="h-full w-full object-cover"
+          src={article?.images[0]?.url}
+          alt="Article"
+        />
+
+        <div className="absolute top-0 left-0 w-full h-full flex items-end">
+          <div className="bg-black/70 w-full px-[10px] py-[5px] flex flex-col justify-between gap-[10px] items-start">
+            <p className="text-[20px] font-medium leading-[1.2]">
+              {article?.headline}
+            </p>
+            <button className="underline text-[blue]">Read More</button>
+          </div>
+        </div>
+      </div>
 
       <div className="max-h-[356px] h-fit flex-1 bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px]">
         <p className="font-[600] text-center">
