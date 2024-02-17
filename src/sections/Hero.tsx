@@ -3,6 +3,7 @@ import StatProgress from "../components/StatProgress";
 import { formatDateForUrl } from "../utils/formatDate";
 import { LeagueCodes, fetchDataForLeagues } from "../utils/fetchDataforLeagues";
 import { useGlobalContext } from "../context/globalContext";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const { article } = useGlobalContext();
@@ -47,7 +48,12 @@ const Hero = () => {
             <p className="text-[20px] font-medium leading-[1.2]">
               {article?.headline}
             </p>
-            <button className="underline text-[blue]">Read More</button>
+            <Link
+              to={`articles/${article?.dataSourceIdentifier}/${article?.headline}`}
+              className="underline text-[#4b4bf5]"
+            >
+              Read More
+            </Link>
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ const ArticleDetails = () => {
     <div className="px-[30px] py-[20px]">
       <div className="w-full h-[300px]">
         <img
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-top"
           src={article?.images[0]?.url}
           alt={article?.headline}
         />
