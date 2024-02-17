@@ -22,7 +22,7 @@ const ArticleDetails = () => {
   useEffect(() => {
     if (article) {
       axios
-        .get(article.links.api.news.href)
+        .get(article.links.api.news.href.replace("http", "https"))
         .then((res) => {
           setStory(res.data.headlines[0].story);
         })
