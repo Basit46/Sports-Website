@@ -12,7 +12,7 @@ body {
 
 @layer components {
   .nav2 ul li {
-    @apply flex gap-[16px] items-center;
+    @apply flex gap-[16px] items-center cursor-pointer;
   }
 
   .matches ul li {

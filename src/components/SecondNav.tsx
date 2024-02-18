@@ -9,6 +9,7 @@ import logo from "../assets/logo.png";
 import chelsea from "../assets/chelsea.png";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 const SecondNav = () => {
   return (
@@ -20,73 +21,54 @@ const SecondNav = () => {
 
       <h1 className="mt-[73px] mb-[40px] text-gray text-sm">MENU</h1>
       <ul className="menu flex flex-col gap-[24px]">
-        {/* <li>
-          <DashboardSvg active={false} />
-          <p className="text-gray">Dashboard</p>
-        </li> */}
-        <li>
-          <LiveSvg active={false} />
-          <p className="text-gray">Live Football</p>
-        </li>
-        <li>
-          <StandingsSvg active={false} />
-          <p className="text-gray">Standings</p>
-        </li>
-        <li>
-          <HighlightsSvg active={false} />
-          <p className="text-gray">Highlights</p>
-        </li>
-        <li>
-          <ShopSvg active={false} />
-          <p className="text-gray">Shop</p>
-        </li>
-        <li>
-          <NewsSvg active={false} />
-          <p className="text-gray">News</p>
-        </li>
+        <ScrollLink to="matches" smooth={true} offset={-100} duration={500}>
+          <li>
+            <LiveSvg active={false} />
+            <p className="text-gray">Matches</p>
+          </li>
+        </ScrollLink>
+        <ScrollLink to="standings" smooth={true} offset={-50} duration={500}>
+          <li>
+            <StandingsSvg active={false} />
+            <p className="text-gray">Standings</p>
+          </li>
+        </ScrollLink>
+        <ScrollLink to="clubs" smooth={true} offset={-50} duration={500}>
+          <li>
+            <HighlightsSvg active={false} />
+            <p className="text-gray">Follow Club</p>
+          </li>
+        </ScrollLink>
+        <ScrollLink to="shop" smooth={true} offset={-50} duration={500}>
+          <li>
+            <ShopSvg active={false} />
+            <p className="text-gray">Shop</p>
+          </li>
+        </ScrollLink>
+        <ScrollLink to="news" smooth={true} offset={-100} duration={500}>
+          <li>
+            <NewsSvg active={false} />
+            <p className="text-gray">News</p>
+          </li>
+        </ScrollLink>
       </ul>
-
-      {/* <h1 className="my-[40px] text-gray text-sm">FOOTBALL LEAGUE</h1>
-      <ul className="leagues flex flex-col gap-[24px]">
-        <li>
-          <img src={plLogo} alt="league logo" />
-          <p>Champions League</p>
-        </li>
-        <li>
-          <img src={plLogo} alt="league logo" />
-          <p>Premier League</p>
-        </li>
-        <li>
-          <img src={plLogo} alt="league logo" />
-          <p>La Liga</p>
-        </li>
-        <li>
-          <img src={plLogo} alt="league logo" />
-          <p>Bundesliga</p>
-        </li>
-        <li>
-          <img src={plLogo} alt="league logo" />
-          <p>Seria A</p>
-        </li>
-      </ul> */}
 
       <h1 className="my-[40px] text-gray text-sm">FAVOURITE CLUB</h1>
       <ul className="clubs flex flex-col gap-[24px]">
         <li>
-          <img src={chelsea} alt="league logo" />
+          <img className="w-[24px]" src={chelsea} alt="league logo" />
           <p>Chelsea</p>
           <FaStar className="text-[gold] ml-auto" />
         </li>
         <li>
-          <img src={chelsea} alt="league logo" />
-          <p>Manchester City</p>
+          <img
+            className="w-[24px]"
+            src={"https://a.espncdn.com/i/teamlogos/soccer/500/180.png"}
+            alt="league logo"
+          />
+          <p>Strasbourg</p>
           <FaStar className="text-[gold] ml-auto" />
         </li>
-        {/* <li>
-          <img src={chelsea} alt="league logo" />
-          <p>Bayern Munchen</p>
-          <FaStar className="text-[gold] ml-auto" />
-        </li> */}
       </ul>
     </nav>
   );

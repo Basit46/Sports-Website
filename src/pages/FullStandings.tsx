@@ -1,15 +1,11 @@
 import { useState, useEffect } from "react";
 
-import {
-  MdKeyboardArrowDown,
-  MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import Standing from "../components/Standing";
 import axios from "axios";
 import { mainLeagues } from "../data/mainLeagues";
-import { Link } from "react-router-dom";
 
-const Standings = () => {
+const FullStandings = () => {
   const [selectedLeague, setSelectedLeague] = useState(mainLeagues[0]);
   const [leagueStandings, setLeagueStandings] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -28,11 +24,8 @@ const Standings = () => {
   };
 
   return (
-    <section
-      id="standings"
-      className="standings border-t-[3px] border-[#2B2D31] py-[48px]"
-    >
-      <h1 className="text-[20px] font-[600]">🏆 Standings</h1>
+    <div className="standings border-t-[3px] border-[#2B2D31] px-[30px] py-[20px]">
+      <h1 className="text-[20px] font-[600] text-center">🏆 Standings</h1>
 
       <div className="mt-[32px] w-full flex justify-between items-center">
         <div className="relative w-[195px] flex items-center">
@@ -70,11 +63,6 @@ const Standings = () => {
             ))}
           </div>
         </div>
-
-        <Link to="/standings" className="flex items-center gap-[4px]">
-          <p className="text-gray whitespace-nowrap">View All</p>
-          <MdOutlineKeyboardArrowRight className="text-[24px]" />
-        </Link>
       </div>
 
       <table className="w-full mt-[32px]">
@@ -92,20 +80,28 @@ const Standings = () => {
           </tr>
         </thead>
         <tbody>
-          {leagueStandings
-            .filter((_, index) => index < 4)
-            .map((data, index) => (
-              <Standing
-                data={data}
-                key={index}
-                index={index}
-                onFullPage={false}
-              />
-            ))}
+          {leagueStandings.map((data, index) => (
+            <Standing data={data} key={index} index={index} onFullPage={true} />
+          ))}
         </tbody>
       </table>
-    </section>
+
+      <div className="mt-[32px] flex gap-[30px] items-center">
+        <div className="flex gap-[5px] items-center">
+          <div className="w-[12px] h-[12px] rounded-full bg-[#81D6AC]" />
+          <p className="text-[14px]">Champions League</p>
+        </div>
+        <div className="flex gap-[5px] items-center">
+          <div className="w-[12px] h-[12px] rounded-full bg-[#B2BFD0]" />
+          <p className="text-[14px]">Europa League</p>
+        </div>
+        <div className="flex gap-[5px] items-center">
+          <div className="w-[12px] h-[12px] rounded-full bg-[#FF7F84]" />
+          <p className="text-[14px]">Relegation</p>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Standings;
+export default FullStandings;

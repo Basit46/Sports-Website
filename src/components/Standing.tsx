@@ -1,11 +1,26 @@
-const Standing = ({ data, index }: { data: any; index: number }) => {
+const Standing = ({
+  data,
+  index,
+  onFullPage,
+}: {
+  data: any;
+  index: number;
+  onFullPage: boolean;
+}) => {
   return (
     <tr
-      className={`standing ${
-        index + 1 < 5 ? "bg-[#49406966]" : "bg-[#412E2E]"
-      } rounded-[8px]`}
+      style={{
+        backgroundColor: onFullPage
+          ? data.note
+            ? data.note.color
+            : "rgb(255 255 255 / 0.8)"
+          : "rgb(255 255 255 / 0.1)",
+
+        color: onFullPage ? "black" : "white",
+      }}
+      className={`standing rounded-[8px]`}
     >
-      <td align="left" className="flex items-center gap-[16px]">
+      <td align="left" className="flex items-center gap-[16px] ">
         <span>{index + 1}</span>
         <img
           className="h-[24px] w-fit"

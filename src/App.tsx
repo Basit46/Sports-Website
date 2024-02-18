@@ -4,6 +4,9 @@ import ArticleDetails from "./pages/ArticleDetails";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import MatchDetails from "./pages/MatchDetails";
+import FullStandings from "./pages/FullStandings";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
@@ -19,8 +22,11 @@ const App = () => {
             path="/articles/:articleId/:articleTitle"
             element={<ArticleDetails />}
           />
+          <Route path="/standings" element={<FullStandings />} />
         </Routes>
       </main>
+
+      <ToastContainer />
     </div>
   );
 };

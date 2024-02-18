@@ -36,7 +36,7 @@ const Matches = () => {
   };
 
   return (
-    <section className="matches mt-[56px] pl-[24px] pb-[48px]">
+    <section id="matches" className="matches mt-[56px] pl-[24px] pb-[48px]">
       <h1 className="text-[20px] font-[600]">⚽ Football Match</h1>
       <ul className="relative mt-[32px] flex border-b-[4px] border-[#2E3034] pb-[13px]">
         {dateList.map((theDate, index) => (
