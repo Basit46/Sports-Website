@@ -148,6 +148,7 @@ const MatchDetails = () => {
                 <IoFootball className="text-white h-[20px]" />
               )}
               {detail.type.text == "Penalty - Scored" && <span>(P)</span>}
+              {detail.type.text.includes("Own Goal") && <span>(OG)</span>}
               {detail.type.text.includes("Yellow") && (
                 <div className="h-[13px] w-[10px] bg-[yellow]" />
               )}
