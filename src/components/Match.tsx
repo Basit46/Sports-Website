@@ -1,10 +1,10 @@
 import { IoIosTrendingUp } from "react-icons/io";
 import { splitTeams } from "../utils/splitTeams";
 import { formatDate } from "../utils/formatDate";
+import { Link } from "react-router-dom";
 
 const Match = ({ match, index }: { match: any; index: number }) => {
   const [awayTeam, homeTeam] = splitTeams(match.name);
-  // console.log(match.competitions[0].competitors);
 
   return (
     <tr className={`match ${index % 2 == 0 && "bg-[#1B1C21]"} rounded-[8px]`}>
@@ -66,8 +66,13 @@ const Match = ({ match, index }: { match: any; index: number }) => {
         {formatDate(match.date)}
       </td>
 
-      <td valign="middle" className="flex items-center gap-[16px]">
-        <IoIosTrendingUp className="border-l border-b pl-[4px] pb-[4px] border-[#A4A4A4] text-[24px] text-[#A4A4A4]" />
+      <td
+        valign="middle"
+        className="flex items-center gap-[16px] cursor-pointer"
+      >
+        <Link to={`/matches/${match.id}`}>
+          <IoIosTrendingUp className="border-l border-b pl-[4px] pb-[4px] border-[#A4A4A4] text-[24px] text-[#A4A4A4]" />
+        </Link>
       </td>
     </tr>
   );

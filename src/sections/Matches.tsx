@@ -1,39 +1,19 @@
 import Match from "../components/Match";
-import { useState, useEffect } from "react";
-import { LeagueCodes, fetchDataForLeagues } from "../utils/fetchDataforLeagues";
+import { useState } from "react";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { Calendar } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { formatDateForCal, formatDateForUrl } from "../utils/formatDate";
+import { formatDateForCal } from "../utils/formatDate";
+import { useGlobalContext } from "../context/globalContext";
 
 const Matches = () => {
+  const { matches, fetchGamesForDate } = useGlobalContext();
+
+  //Local states
   const [date, setDate] = useState(new Date());
-  const [matches, setMatches] = useState([]);
   const [currDateId, setCurrDateId] = useState(0);
   const [showCalendar, setShowCalendar] = useState(false);
   const [showCalendarDate, setShowCalendarDate] = useState(false);
-
-  useEffect(() => {
-    fetchGamesForDate(new Date());
-  }, []);
-
-  const fetchGamesForDate = (theDate: Date) => {
-    const currentDate = formatDateForUrl(theDate);
-
-    Promise.all(
-      LeagueCodes.map((leagueCode) =>
-        fetchDataForLeagues(leagueCode, currentDate)
-      )
-    )
-      .then((results) => {
-        // Flatten the array of arrays into a single array of matches
-        const allMatches: any = results.flat();
-        setMatches(allMatches);
-      })
-      .catch((error) =>
-        console.error("Error fetching data for multiple leagues:", error)
-      );
-  };
 
   const dateList: Date[] = [];
   const getDates = () => {

@@ -1,17 +1,22 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { mainLeagues } from "../data/mainLeagues";
 import axios from "axios";
+import { formatDateForUrl } from "../utils/formatDate";
+import { LeagueCodes, fetchDataForLeagues } from "../utils/fetchDataforLeagues";
 
 const globalContext = createContext({} as globalContextType);
 
 type globalContextType = {
   articles: any[];
   article: any;
+  matches: any[];
+  fetchGamesForDate: (theDate: Date) => void;
 };
 
 const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [articles, setArticles] = useState([]);
   const [article, setArticle] = useState();
+  const [matches, setMatches] = useState([]);
 
   //Fetch Articles
   useEffect(() => {
@@ -45,8 +50,33 @@ const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [articles]);
 
+  //Fetch Matches
+  useEffect(() => {
+    fetchGamesForDate(new Date());
+  }, []);
+
+  const fetchGamesForDate = (theDate: Date) => {
+    const currentDate = formatDateForUrl(theDate);
+
+    Promise.all(
+      LeagueCodes.map((leagueCode) =>
+        fetchDataForLeagues(leagueCode, currentDate)
+      )
+    )
+      .then((results) => {
+        // Flatten the array of arrays into a single array of matches
+        const allMatches: any = results.flat();
+        setMatches(allMatches);
+      })
+      .catch((error) =>
+        console.error("Error fetching data for multiple leagues:", error)
+      );
+  };
+
   return (
-    <globalContext.Provider value={{ articles, article }}>
+    <globalContext.Provider
+      value={{ articles, article, matches, fetchGamesForDate }}
+    >
       {children}
     </globalContext.Provider>
   );
