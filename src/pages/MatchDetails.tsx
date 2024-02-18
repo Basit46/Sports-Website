@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../context/globalContext";
 import { IoFootball } from "react-icons/io5";
+import Stat from "../components/Stat";
 
 const MatchDetails = () => {
   const params = useParams();
@@ -12,8 +13,6 @@ const MatchDetails = () => {
   useEffect(() => {
     setMatch(matches.find((match) => match?.id == params.matchId));
   }, [matches]);
-
-  console.log(match);
 
   return (
     <div className="px-[30px] py-[20px]">
@@ -33,9 +32,11 @@ const MatchDetails = () => {
                 <p className="font-[500] text-[22px] ml-[16px] mr-[42px]">
                   {match?.competitions[0].competitors[0].team.displayName}
                 </p>
-                <p className="font-[500] text-[24px]">
-                  {match?.competitions[0].competitors[0].score}
-                </p>
+                {match?.status.type.state != "pre" && (
+                  <p className="font-[500] text-[24px]">
+                    {match?.competitions[0].competitors[0].score}
+                  </p>
+                )}
               </span>
 
               <p className="text-[gray]">
@@ -45,9 +46,12 @@ const MatchDetails = () => {
               </p>
 
               <span className="flex items-center">
-                <p className="font-[500] text-[24px]">
-                  {match?.competitions[0].competitors[1].score}
-                </p>
+                {match?.status.type.state != "pre" && (
+                  <p className="font-[500] text-[24px]">
+                    {match?.competitions[0].competitors[1].score}
+                  </p>
+                )}
+
                 <p className="font-[500] text-[22px] mr-[16px] ml-[42px]">
                   {match?.competitions[0].competitors[1].team.displayName}
                 </p>
@@ -73,15 +77,16 @@ const MatchDetails = () => {
                   )
                   .map((detail: any, index: number) => (
                     <p key={index} className="font-[14px] text-[gray]">
+                      <span>{detail.clock.displayValue}</span>{" "}
                       {detail.athletesInvolved[0].shortName}{" "}
                       <span>
                         {detail.type.text == "Penalty - Scored" && "(P)"}
-                      </span>{" "}
-                      <span>{detail.clock.displayValue}</span>
+                      </span>
                     </p>
                   ))}
               </div>
-              <div className="flex flex-col gap-[12px]">
+
+              <div className="flex flex-col gap-[12px] items-end">
                 {match?.competitions[0].details
                   .filter(
                     (detail: any) =>
@@ -94,10 +99,10 @@ const MatchDetails = () => {
                   )
                   .map((detail: any, index: number) => (
                     <p key={index} className="font-[14px] text-[gray]">
-                      {detail.athletesInvolved[0].shortName}{" "}
                       <span>
                         {detail.type.text == "Penalty - Scored" && "(P)"}
                       </span>{" "}
+                      {detail.athletesInvolved[0].shortName}{" "}
                       <span>{detail.clock.displayValue}</span>
                     </p>
                   ))}
@@ -124,64 +129,59 @@ const MatchDetails = () => {
         </div>
       </div>
 
-      <div className="mt-[48px] flex gap-[24px]">
-        <div className="w-[65%] bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px] flex flex-col gap-[20px]">
-          {match?.competitions[0].details.map((detail: any, index: number) => (
-            <div
-              key={index}
-              className={`${
-                detail.team.id == match.competitions[0].competitors[0].id
-                  ? "justify-start"
-                  : "flex-row-reverse"
-              } flex gap-[6px] items-center font-[14px] text-[gray]`}
-            >
-              <span className="text-[#14FF00]">
-                {detail.clock.displayValue}
-              </span>
-              <span>
-                {detail.athletesInvolved
-                  ? detail.athletesInvolved[0].shortName
-                  : "Outfield Member"}
-              </span>
-              {(detail.type.text.includes("Goal") ||
-                detail.type.text.includes("Scored")) && (
-                <IoFootball className="text-white h-[20px]" />
-              )}
-              {detail.type.text == "Penalty - Scored" && <span>(P)</span>}
-              {detail.type.text.includes("Own Goal") && <span>(OG)</span>}
-              {detail.type.text.includes("Yellow") && (
-                <div className="h-[13px] w-[10px] bg-[yellow]" />
-              )}
-              {detail.type.text.includes("Red") && (
-                <div className="h-[13px] w-[10px] bg-[red]" />
-              )}
+      {match?.status.type.state != "pre" && (
+        <div className="mt-[48px] flex gap-[24px]">
+          <div className="w-[65%] bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px] flex flex-col gap-[20px]">
+            {match?.competitions[0].details.map(
+              (detail: any, index: number) => (
+                <div
+                  key={index}
+                  className={`${
+                    detail.team.id == match.competitions[0].competitors[0].id
+                      ? "justify-start"
+                      : "flex-row-reverse"
+                  } flex gap-[6px] items-center font-[14px] text-[gray]`}
+                >
+                  <span className="text-[#14FF00]">
+                    {detail.clock.displayValue}
+                  </span>
+                  <span>
+                    {detail.athletesInvolved
+                      ? detail.athletesInvolved[0].shortName
+                      : "Outfield Member"}
+                  </span>
+                  {(detail.type.text.includes("Goal") ||
+                    detail.type.text.includes("Scored")) && (
+                    <IoFootball className="text-white h-[20px]" />
+                  )}
+                  {detail.type.text == "Penalty - Scored" && <span>(P)</span>}
+                  {detail.type.text.includes("Own Goal") && <span>(OG)</span>}
+                  {detail.type.text.includes("Yellow") && (
+                    <div className="h-[13px] w-[10px] bg-[yellow]" />
+                  )}
+                  {detail.type.text.includes("Red") && (
+                    <div className="h-[13px] w-[10px] bg-[red]" />
+                  )}
+                </div>
+              )
+            )}
+          </div>
+
+          <div className="flex-1 bg-[#1B1C21] rounded-[16px] py-[32px] px-[22px]">
+            <h1 className="text-center text-[14px]">Team Statistics</h1>
+            <div className="mt-[24px] flex flex-col gap-[16px]">
+              <Stat match={match} title="Possession" statIndex={4} />
+              <Stat match={match} title="Shot" statIndex={8} />
+              <Stat match={match} title="Shot On Target" statIndex={6} />
+              <Stat match={match} title="Goals" statIndex={7} />
+              <Stat match={match} title="Corners" statIndex={2} />
+              <Stat match={match} title="Fouls" statIndex={1} />
             </div>
-          ))}
+          </div>
         </div>
-        <div className="flex-1 bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px]"></div>
-      </div>
+      )}
     </div>
   );
 };
 
 export default MatchDetails;
-
-// {match?.competitions[0].details
-//   .filter(
-//     (detail: any) =>
-//       detail.team.id == match.competitions[0].competitors[0].id
-//   )
-//   .filter(
-//     (detail: any) =>
-//       detail.type.text.includes("Goal") ||
-//       detail.type.text.includes("Scored")
-//   )
-//   .map((detail: any, index: number) => (
-//     <p key={index} className="font-[14px] text-[gray]">
-//       {detail.athletesInvolved[0].shortName}{" "}
-//       <span>
-//         {detail.type.text == "Penalty - Scored" && "(P)"}
-//       </span>{" "}
-//       <span>{detail.clock.displayValue}</span>
-//     </p>
-//   ))}

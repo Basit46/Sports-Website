@@ -4,6 +4,7 @@ import { formatDateForUrl } from "../utils/formatDate";
 import { LeagueCodes, fetchDataForLeagues } from "../utils/fetchDataforLeagues";
 import { useGlobalContext } from "../context/globalContext";
 import { Link } from "react-router-dom";
+import Stat from "../components/Stat";
 
 const Hero = () => {
   const { article } = useGlobalContext();
@@ -99,127 +100,9 @@ const Hero = () => {
 
         {match?.status.type.state != "pre" && (
           <div className="flex flex-col gap-[16px]">
-            <div>
-              <p className="text-[14px] font-medium text-center">Possession</p>
-              <div className="flex justify-between">
-                <StatProgress
-                  val={
-                    match?.competitions[0].competitors[0].statistics[4]
-                      .displayValue
-                  }
-                  totalVal={
-                    parseFloat(
-                      match?.competitions[0].competitors[0].statistics[4]
-                        .displayValue
-                    ) +
-                    parseFloat(
-                      match?.competitions[0].competitors[1].statistics[4]
-                        .displayValue
-                    )
-                  }
-                  isHome={true}
-                />
-                <StatProgress
-                  val={
-                    match?.competitions[0].competitors[1].statistics[4]
-                      .displayValue
-                  }
-                  totalVal={
-                    parseFloat(
-                      match?.competitions[0].competitors[0].statistics[4]
-                        .displayValue
-                    ) +
-                    parseFloat(
-                      match?.competitions[0].competitors[1].statistics[4]
-                        .displayValue
-                    )
-                  }
-                  isHome={false}
-                />
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[14px] font-medium text-center">Shot</p>
-              <div className="flex justify-between">
-                <StatProgress
-                  val={
-                    match?.competitions[0].competitors[0].statistics[8]
-                      .displayValue
-                  }
-                  totalVal={
-                    parseFloat(
-                      match?.competitions[0].competitors[0].statistics[8]
-                        .displayValue
-                    ) +
-                    parseFloat(
-                      match?.competitions[0].competitors[1].statistics[8]
-                        .displayValue
-                    )
-                  }
-                  isHome={true}
-                />
-                <StatProgress
-                  val={
-                    match?.competitions[0].competitors[1].statistics[8]
-                      .displayValue
-                  }
-                  totalVal={
-                    parseFloat(
-                      match?.competitions[0].competitors[0].statistics[8]
-                        .displayValue
-                    ) +
-                    parseFloat(
-                      match?.competitions[0].competitors[1].statistics[8]
-                        .displayValue
-                    )
-                  }
-                  isHome={false}
-                />
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[14px] font-medium text-center">
-                Shot On Target
-              </p>
-              <div className="flex justify-between">
-                <StatProgress
-                  val={
-                    match?.competitions[0].competitors[0].statistics[6]
-                      .displayValue
-                  }
-                  totalVal={
-                    parseFloat(
-                      match?.competitions[0].competitors[0].statistics[6]
-                        .displayValue
-                    ) +
-                    parseFloat(
-                      match?.competitions[0].competitors[1].statistics[6]
-                        .displayValue
-                    )
-                  }
-                  isHome={true}
-                />
-                <StatProgress
-                  val={
-                    match?.competitions[0].competitors[1].statistics[6]
-                      .displayValue
-                  }
-                  totalVal={
-                    parseFloat(
-                      match?.competitions[0].competitors[0].statistics[6]
-                        .displayValue
-                    ) +
-                    parseFloat(
-                      match?.competitions[0].competitors[1].statistics[6]
-                        .displayValue
-                    )
-                  }
-                  isHome={false}
-                />
-              </div>
-            </div>
+            <Stat match={match} title="Possession" statIndex={4} />
+            <Stat match={match} title="Shot" statIndex={8} />
+            <Stat match={match} title="Shot On Target" statIndex={6} />
           </div>
         )}
       </div>
