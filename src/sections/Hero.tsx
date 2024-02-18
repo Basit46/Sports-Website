@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import StatProgress from "../components/StatProgress";
 import { formatDateForUrl } from "../utils/formatDate";
 import { LeagueCodes, fetchDataForLeagues } from "../utils/fetchDataforLeagues";
 import { useGlobalContext } from "../context/globalContext";
