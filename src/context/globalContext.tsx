@@ -11,12 +11,15 @@ type globalContextType = {
   article: any;
   matches: any[];
   fetchGamesForDate: (theDate: Date) => void;
+  clubs: any[];
+  fetchClubs: (league: string) => void;
 };
 
 const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [articles, setArticles] = useState([]);
   const [article, setArticle] = useState();
   const [matches, setMatches] = useState([]);
+  const [clubs, setClubs] = useState([]);
 
   //Fetch Articles
   useEffect(() => {
@@ -73,9 +76,28 @@ const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
       );
   };
 
+  //Fetch clubs
+  const fetchClubs = (league: string) => {
+    axios
+      .get(
+        `https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/teams`
+      )
+      .then((res) => {
+        setClubs(res.data.sports[0].leagues[0].teams);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <globalContext.Provider
-      value={{ articles, article, matches, fetchGamesForDate }}
+      value={{
+        articles,
+        article,
+        matches,
+        fetchGamesForDate,
+        clubs,
+        fetchClubs,
+      }}
     >
       {children}
     </globalContext.Provider>

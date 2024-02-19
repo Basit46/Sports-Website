@@ -79,6 +79,9 @@ const MatchDetails = () => {
                     <p key={index} className="font-[14px] text-[gray]">
                       <span>{detail.clock.displayValue}</span>{" "}
                       {detail.athletesInvolved[0].shortName}{" "}
+                      {detail.type.text.includes("Own Goal") && (
+                        <span>(OG)</span>
+                      )}{" "}
                       <span>
                         {detail.type.text == "Penalty - Scored" && "(P)"}
                       </span>
@@ -102,6 +105,9 @@ const MatchDetails = () => {
                       <span>
                         {detail.type.text == "Penalty - Scored" && "(P)"}
                       </span>{" "}
+                      {detail.type.text.includes("Own Goal") && (
+                        <span>(OG)</span>
+                      )}{" "}
                       {detail.athletesInvolved[0].shortName}{" "}
                       <span>{detail.clock.displayValue}</span>
                     </p>
@@ -131,7 +137,7 @@ const MatchDetails = () => {
 
       {match?.status.type.state != "pre" && (
         <div className="mt-[48px] flex gap-[24px]">
-          <div className="w-[65%] bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px] flex flex-col gap-[20px]">
+          <div className="w-[65%] h-fit bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px] flex flex-col gap-[20px]">
             {match?.competitions[0].details.map(
               (detail: any, index: number) => (
                 <div
@@ -167,7 +173,7 @@ const MatchDetails = () => {
             )}
           </div>
 
-          <div className="flex-1 bg-[#1B1C21] rounded-[16px] py-[32px] px-[22px]">
+          <div className="flex-1 h-fit bg-[#1B1C21] rounded-[16px] py-[32px] px-[22px]">
             <h1 className="text-center text-[14px]">Team Statistics</h1>
             <div className="mt-[24px] flex flex-col gap-[16px]">
               <Stat match={match} title="Possession" statIndex={4} />
