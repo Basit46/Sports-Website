@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useGlobalContext } from "../context/globalContext";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { mainLeagues } from "../data/mainLeagues";
-import axios from "axios";
 import Club from "../components/Club";
 
 const Clubs = () => {
