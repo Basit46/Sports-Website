@@ -9,7 +9,7 @@ import Standings from "../sections/Standings";
 
 const Home = () => {
   return (
-    <div className="py-[24px] px-[25px]">
+    <div className="w-full py-[24px] px-[25px]">
       <Hero />
       <Matches />
       <Standings />

@@ -5,7 +5,7 @@ const Article = ({ article }: { article: any }) => {
   return (
     <Link
       to={`articles/${article?.dataSourceIdentifier}/${article?.headline}`}
-      className="w-[225px]"
+      className="w-[45%] xmd:w-[225px]"
     >
       <div className="w-full h-[156px] rounded-[16px] overflow-hidden">
         <img

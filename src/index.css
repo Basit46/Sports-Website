@@ -11,7 +11,7 @@ body {
 }
 
 @layer components {
-  .nav ul li {
+  nav ul li {
     @apply flex gap-[16px] items-center cursor-pointer;
   }
 

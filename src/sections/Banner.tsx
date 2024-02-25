@@ -9,8 +9,8 @@ import screen2 from "../assets/screen2.svg";
 
 const Banner = () => {
   return (
-    <section className="relative h-[350px] w-full bg-[#1B1C21] rounded-[24px]">
-      <div className="relative pl-[27px] pt-[56px] z-[5]">
+    <section className="relative h-[650px] xmd:h-[350px] w-full bg-[#1B1C21] rounded-[24px]">
+      <div className="relative pl-[27px] pt-[56px] z-[7]">
         <p className="text-[#F5C451] font-medium">New Platform</p>
         <p className="mt-[8px] mb-[24px] text-[28px] font-[600] leading-[36.4px]">
           Get one of our sports <br /> apps, which is only <br /> available on

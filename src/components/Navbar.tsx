@@ -13,7 +13,7 @@ import { Link as ScrollLink } from "react-scroll";
 
 const Navbar = () => {
   return (
-    <nav className="nav sticky top-0 h-screen bg-[#14151B] flex-1 border-x border-x-[#313131] pt-[24px] pb-[28px] px-[24px]">
+    <nav className="sticky hidden xl:block top-0 h-screen w-[300px] bg-[#14151B] border-x border-x-[#313131] pt-[24px] pb-[28px] px-[24px]">
       <Link to="/" className="flex items-center gap-[8px]">
         <img src={logo} alt="logo" />
         <h1>Onesport</h1>

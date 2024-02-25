@@ -37,9 +37,9 @@ const Hero = () => {
   };
 
   return (
-    <section className="h-[356px] flex gap-[24px]">
+    <section className="h-fit xmd:h-[356px] w-full flex flex-col xmd:flex-row gap-[24px]">
       {article ? (
-        <div className="relative h-full w-[65%] rounded-[16px] overflow-hidden">
+        <div className="relative h-fit xmd:h-full w-full xmd:w-[60%] xl:w-[65%] rounded-[16px] overflow-hidden">
           <img
             className="h-full w-full object-cover"
             src={article?.images[0]?.url}
@@ -61,11 +61,11 @@ const Hero = () => {
           </div>
         </div>
       ) : (
-        <div className="relative h-full bg-[#1B1C21] w-[65%] rounded-[16px] overflow-hidden" />
+        <div className="relative h-[356px] xmd:h-full w-full xmd:w-[60%] xl:w-[65%] rounded-[16px] overflow-hidden" />
       )}
 
       {match ? (
-        <div className="max-h-full h-fit flex-1 bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px]">
+        <div className="max-h-full h-fit w-[300px] xmd:w-auto xmd:flex-1 bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px]">
           <p className="font-[600] text-center">
             {match?.status.type.state == "pre" && "Coming soon"}
             {match?.status.type.state == "in" && "Live Match"}

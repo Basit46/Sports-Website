@@ -56,7 +56,7 @@ const Clubs = () => {
         </div>
       </div>
 
-      <div className="mt-[32px] flex flex-wrap gap-[30px]">
+      <div className="mt-[32px] flex flex-wrap justify-center gap-[30px]">
         {clubs.map((club, index) => (
           <Club key={index} club={club} />
         ))}

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        xmd: "850px",
+        xmd: "950px",
         vsm: "450px",
       },
       colors: {

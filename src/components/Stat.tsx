@@ -11,7 +11,8 @@ const Stat = ({
 }) => {
   const total =
     parseFloat(
-      match?.competitions[0].competitors[0].statistics[statIndex].displayValue
+      match?.competitions[0].competitors[0].statistics[statIndex]
+        .displayValue || 0
     ) +
     parseFloat(
       match?.competitions[0].competitors[1].statistics[statIndex].displayValue

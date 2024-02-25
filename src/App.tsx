@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
-    <div className="max-w-[1400px] mx-auto flex border-t border-t-[#313131]">
+    <div className="max-w-[1400px] mx-auto w-full flex border-t border-t-[#313131]">
       <Navbar />
 
       <main className="flex-1">
