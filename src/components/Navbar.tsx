@@ -11,9 +11,11 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useGlobalContext } from "../context/globalContext";
+import { useFollowClubContext } from "../context/followClubContext";
 
 const Navbar = () => {
   const { isMenuOpen, setIsMenuOpen } = useGlobalContext();
+  const { likedClubs, setLikedClubs } = useFollowClubContext();
 
   return (
     <nav
@@ -92,23 +94,32 @@ const Navbar = () => {
         </ScrollLink>
       </ul>
 
-      <h1 className="my-[40px] text-gray text-sm">FAVOURITE CLUB</h1>
-      <ul className="clubs flex flex-col gap-[24px]">
-        <li>
-          <img className="w-[24px]" src={chelsea} alt="league logo" />
-          <p>Chelsea</p>
-          <FaStar className="text-[gold] ml-auto" />
-        </li>
-        <li>
-          <img
-            className="w-[24px]"
-            src={"https://a.espncdn.com/i/teamlogos/soccer/500/180.png"}
-            alt="league logo"
-          />
-          <p>Strasbourg</p>
-          <FaStar className="text-[gold] ml-auto" />
-        </li>
-      </ul>
+      <h1 className="mt-[40px] mb-[20px] text-gray text-sm">FAVOURITE CLUB</h1>
+      <div className="h-[130px] overflow-y-auto">
+        <ul className="clubs flex flex-col gap-[10px]">
+          {likedClubs.length > 0 &&
+            likedClubs.map((club, i) => (
+              <li key={i}>
+                <img
+                  className="w-[24px]"
+                  src={club.team.logos[0].href}
+                  alt="league logo"
+                />
+                <p>{club.team.name}</p>
+                <FaStar
+                  onClick={() =>
+                    setLikedClubs(
+                      likedClubs.filter(
+                        (aclub) => aclub.team.id !== club.team.id
+                      )
+                    )
+                  }
+                  className="text-[gold] ml-auto"
+                />
+              </li>
+            ))}
+        </ul>
+      </div>
     </nav>
   );
 };
