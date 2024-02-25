@@ -50,7 +50,7 @@ const Banner = () => {
 
       {/* Screens */}
       <img
-        className="absolute bottom-0 right-[35%] z-[6]"
+        className="hidden vsm:block absolute bottom-0 right-[35%] z-[6]"
         src={screen1}
         alt="mobile app screen"
       />

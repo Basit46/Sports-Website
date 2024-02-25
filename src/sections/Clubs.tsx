@@ -16,7 +16,7 @@ const Clubs = () => {
 
   return (
     <section id="clubs" className="border-t-[3px] border-[#2B2D31] py-[48px]">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col vsm:flex-row gap-[20px] vsm:gap-0 justify-between vsm:items-center">
         <p className="text-[20px] font-[600]">🎮 Follow Club</p>
 
         <div className="relative z-[2] w-[195px] flex items-center">

@@ -7,6 +7,8 @@ import { LeagueCodes, fetchDataForLeagues } from "../utils/fetchDataforLeagues";
 const globalContext = createContext({} as globalContextType);
 
 type globalContextType = {
+  isMenuOpen: boolean;
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
   articles: any[];
   article: any;
   matches: any[];
@@ -16,6 +18,7 @@ type globalContextType = {
 };
 
 const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [articles, setArticles] = useState([]);
   const [article, setArticle] = useState();
   const [matches, setMatches] = useState([]);
@@ -91,6 +94,8 @@ const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <globalContext.Provider
       value={{
+        isMenuOpen,
+        setIsMenuOpen,
         articles,
         article,
         matches,

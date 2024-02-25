@@ -5,11 +5,11 @@ const Article = ({ article }: { article: any }) => {
   return (
     <Link
       to={`articles/${article?.dataSourceIdentifier}/${article?.headline}`}
-      className="w-[45%] xmd:w-[225px]"
+      className="w-full sm:w-[45%] xmd:w-[225px]"
     >
-      <div className="w-full h-[156px] rounded-[16px] overflow-hidden">
+      <div className="w-full h-fit sm:h-[156px] rounded-[16px] overflow-hidden">
         <img
-          className="h-full w-full object-cover"
+          className="h-fit sm:h-full w-full object-cover"
           src={article?.images[0]?.url || articleImg}
           alt="article"
         />

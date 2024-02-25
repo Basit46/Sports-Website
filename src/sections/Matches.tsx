@@ -54,9 +54,26 @@ const Matches = () => {
             </li>
           ))}
         </div>
-        <div className="xmd:hidden flex">
+        <div className="hidden vsm:flex xmd:hidden">
           {dateList
             .filter((_, index) => index < 2)
+            .map((theDate, index) => (
+              <li
+                className={`${currDateId == index && "active"}`}
+                onClick={() => {
+                  fetchGamesForDate(theDate);
+                  setCurrDateId(index);
+                  setShowCalendarDate(false);
+                }}
+                key={index}
+              >
+                {theDate.toDateString()}
+              </li>
+            ))}
+        </div>
+        <div className="flex vsm:hidden">
+          {dateList
+            .filter((_, index) => index < 1)
             .map((theDate, index) => (
               <li
                 className={`${currDateId == index && "active"}`}

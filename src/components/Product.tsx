@@ -3,8 +3,11 @@ import { toast } from "react-toastify";
 
 const Product = () => {
   return (
-    <div onClick={() => toast("Coming soon")} className="cursor-pointer">
-      <div className="w-[223px] h-[282px] p-[24px] rounded-[16px] bg-[#1B1C21] grid place-items-center">
+    <div
+      onClick={() => toast("Coming soon")}
+      className="cursor-pointer w-full sm:w-[223px]"
+    >
+      <div className="w-full h-[282px] p-[24px] rounded-[16px] bg-[#1B1C21] grid place-items-center">
         <img src={jersey} alt="product" />
       </div>
       <div className="mt-[16px]">

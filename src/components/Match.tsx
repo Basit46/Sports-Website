@@ -10,16 +10,18 @@ const Match = ({ match, index }: { match: any; index: number }) => {
         index % 2 == 0 && "bg-[#1B1C21]"
       } cursor-pointer rounded-[8px]`}
     >
-      <td valign="middle" className="flex items-center gap-[15px]">
-        <img
-          className="w-[32px] h-[32px] rounded-full bg-white"
-          src={match.competitions[0].competitors[0].team.logo}
-          alt="team logo"
-        />
+      <td valign="middle" className="vsm:flex items-center gap-[15px]">
+        <div className="h-[32px] w-[32px]">
+          <img
+            className="w-full h-full object-cover rounded-full bg-white"
+            src={match.competitions[0].competitors[0].team.logo}
+            alt="team logo"
+          />
+        </div>
         <p className="font-[500] whitespace-nowrap hidden xmd:block">
           {match.competitions[0].competitors[0].team.name}
         </p>
-        <p className="font-[500] whitespace-nowrap block xmd:hidden">
+        <p className="font-[500] whitespace-nowrap hidden vsm:block xmd:hidden">
           {match.competitions[0].competitors[0].team.abbreviation}
         </p>
       </td>
@@ -35,18 +37,20 @@ const Match = ({ match, index }: { match: any; index: number }) => {
         )}
       </td>
 
-      <td valign="middle" className="flex items-center gap-[15px]">
+      <td valign="middle" className="vsm:flex items-center vsm:gap-[15px]">
         <p className="font-[500] whitespace-nowrap hidden xmd:block">
           {match.competitions[0].competitors[1].team.name}
         </p>
-        <p className="font-[500] whitespace-nowrap block xmd:hidden">
+        <p className="font-[500] whitespace-nowrap hidden vsm:block xmd:hidden">
           {match.competitions[0].competitors[1].team.abbreviation}
         </p>
-        <img
-          className="w-[32px] h-[32px] rounded-full bg-white"
-          src={match.competitions[0].competitors[1].team.logo}
-          alt="team logo"
-        />
+        <div className="h-[32px] w-[32px]">
+          <img
+            className="w-full h-full object-cover rounded-full bg-white"
+            src={match.competitions[0].competitors[1].team.logo}
+            alt="team logo"
+          />
+        </div>
       </td>
 
       <td valign="middle">
@@ -73,7 +77,7 @@ const Match = ({ match, index }: { match: any; index: number }) => {
 
       <td
         valign="middle"
-        className="text-[14px] text-[#A4A4A4] whitespace-nowrap"
+        className="text-[14px] hidden md:block text-[#A4A4A4] whitespace-nowrap"
       >
         {formatDate(match.date)}
       </td>

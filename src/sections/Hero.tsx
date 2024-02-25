@@ -65,7 +65,7 @@ const Hero = () => {
       )}
 
       {match ? (
-        <div className="max-h-full h-fit w-[300px] xmd:w-auto xmd:flex-1 bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px]">
+        <div className="max-h-full h-fit w-full sm:w-[300px] xmd:w-auto xmd:flex-1 bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px]">
           <p className="font-[600] text-center">
             {match?.status.type.state == "pre" && "Coming soon"}
             {match?.status.type.state == "in" && "Live Match"}

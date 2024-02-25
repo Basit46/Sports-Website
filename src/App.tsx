@@ -7,6 +7,7 @@ import MatchDetails from "./pages/MatchDetails";
 import FullStandings from "./pages/FullStandings";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./sections/Footer";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           />
           <Route path="/standings" element={<FullStandings />} />
         </Routes>
+        <Footer />
       </main>
 
       <ToastContainer />

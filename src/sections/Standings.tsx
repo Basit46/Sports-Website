@@ -86,8 +86,15 @@ const Standings = () => {
             <th align="center">W</th>
             <th align="center">D</th>
             <th align="center">L</th>
-            <th align="center">Goals</th>
-            <th align="center">Points</th>
+            <th align="center" className="hidden vsm:block">
+              Goals
+            </th>
+            <th align="center" className="hidden vsm:block">
+              Points
+            </th>
+            <th align="center" className="block vsm:hidden">
+              PTS
+            </th>
           </tr>
         </thead>
         <tbody>
