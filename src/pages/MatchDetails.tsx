@@ -15,7 +15,7 @@ const MatchDetails = () => {
   }, [matches]);
 
   return (
-    <div className="px-[30px] py-[20px]">
+    <div className="px-[10px] vsm:px-[30px] py-[20px]">
       <div className="relative w-full min-h-[222px] rounded-[16px] bg-[#1B1C21] overflow-hidden flex items-center">
         <div className="relative z-[2] w-full h-full pt-[24px] pb-[15px]">
           <div className="w-fit mx-auto flex flex-col items-center">
@@ -23,13 +23,13 @@ const MatchDetails = () => {
               {match?.venue.displayName}
             </h1>
             <div className="mt-[16px] flex gap-[24px] items-center">
-              <span className="flex items-center">
+              <span className="flex items-center gap-[30px] sm:gap-0">
                 <img
                   className="w-[40px]"
                   src={match?.competitions[0].competitors[0].team.logo}
                   alt="Home Team"
                 />
-                <p className="font-[500] text-[22px] ml-[16px] mr-[42px]">
+                <p className="hidden sm:block font-[500] text-[22px] ml-[16px] mr-[42px]">
                   {match?.competitions[0].competitors[0].team.displayName}
                 </p>
                 {match?.status.type.state != "pre" && (
@@ -45,14 +45,14 @@ const MatchDetails = () => {
                 {match?.status.type.state == "post" && "FT"}
               </p>
 
-              <span className="flex items-center">
+              <span className="flex items-center gap-[30px] sm:gap-0">
                 {match?.status.type.state != "pre" && (
                   <p className="font-[500] text-[24px]">
                     {match?.competitions[0].competitors[1].score}
                   </p>
                 )}
 
-                <p className="font-[500] text-[22px] mr-[16px] ml-[42px]">
+                <p className="hidden sm:block font-[500] text-[22px] mr-[16px] ml-[42px]">
                   {match?.competitions[0].competitors[1].team.displayName}
                 </p>
                 <img
@@ -136,8 +136,8 @@ const MatchDetails = () => {
       </div>
 
       {match?.status.type.state != "pre" && (
-        <div className="mt-[48px] flex gap-[24px]">
-          <div className="w-[65%] h-fit bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px] flex flex-col gap-[20px]">
+        <div className="mt-[48px] flex flex-col xmd:flex-row gap-[24px]">
+          <div className="w-full xmd:w-[65%] h-fit bg-[#1B1C21] rounded-[16px] py-[26px] px-[22px] flex flex-col gap-[20px]">
             {match?.competitions[0].details.map(
               (detail: any, index: number) => (
                 <div

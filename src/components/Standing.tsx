@@ -20,21 +20,25 @@ const Standing = ({
       }}
       className={`standing rounded-[8px]`}
     >
-      <td align="left" className="flex items-center gap-[10px] vsm:gap-[16px] ">
-        <span>{index + 1}</span>
-        <img
-          className="h-[24px] w-fit"
-          src={data.team.logos[0].href}
-          alt="club logo"
-        />
-        <p className="font-medium hidden sm:block">{data.team.name}</p>
-        <p className="font-medium block sm:hidden">{data.team.abbreviation}</p>
+      <td align="left">
+        <div className="w-full flex items-center gap-[4px] vsm:gap-[16px]">
+          <span>{index + 1}</span>
+          <img
+            className="h-[24px] w-fit"
+            src={data.team.logos[0].href}
+            alt="club logo"
+          />
+          <p className="font-medium hidden sm:block">{data.team.name}</p>
+          <p className="font-medium block text-[13px] vsm:text-[16px] sm:hidden">
+            {data.team.abbreviation}
+          </p>
+        </div>
       </td>
       <td align="center">{data.stats[0].displayValue}</td>
       <td align="center">{data.stats[7].displayValue}</td>
       <td align="center">{data.stats[6].displayValue}</td>
       <td align="center">{data.stats[1].displayValue}</td>
-      <td align="center" className="hidden vsm:block">
+      <td align="center" className="">
         {data.stats[5].displayValue}:{data.stats[4].displayValue}
       </td>
       <td align="center">{data.stats[3].displayValue}</td>

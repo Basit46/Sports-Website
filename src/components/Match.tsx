@@ -79,11 +79,10 @@ const Match = ({ match, index }: { match: any; index: number }) => {
         )}
       </td>
 
-      <td
-        valign="middle"
-        className="text-[14px] hidden md:block text-[#A4A4A4] whitespace-nowrap"
-      >
-        {formatDate(match.date)}
+      <td valign="middle">
+        <p className="text-[14px] hidden md:block text-[#A4A4A4] whitespace-nowrap">
+          {formatDate(match.date)}
+        </p>
       </td>
     </tr>
   );

@@ -24,7 +24,7 @@ const FullStandings = () => {
   };
 
   return (
-    <div className="standings border-t-[3px] border-[#2B2D31] px-[30px] py-[20px]">
+    <div className="standings border-t-[3px] border-[#2B2D31] px-[10px] vsm:px-[30px] py-[20px]">
       <h1 className="text-[20px] font-[600] text-center">🏆 Standings</h1>
 
       <div className="mt-[32px] w-full flex justify-between items-center">
@@ -76,7 +76,12 @@ const FullStandings = () => {
             <th align="center">D</th>
             <th align="center">L</th>
             <th align="center">Goals</th>
-            <th align="center">Points</th>
+            <th align="center" className="hidden vsm:block">
+              Points
+            </th>
+            <th align="center" className="block vsm:hidden">
+              PTS
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -86,7 +91,7 @@ const FullStandings = () => {
         </tbody>
       </table>
 
-      <div className="mt-[32px] flex gap-[30px] items-center">
+      <div className="mt-[32px] flex flex-col vsm:flex-row gap-[30px] vsm:items-center">
         <div className="flex gap-[5px] items-center">
           <div className="w-[12px] h-[12px] rounded-full bg-[#81D6AC]" />
           <p className="text-[14px]">Champions League</p>

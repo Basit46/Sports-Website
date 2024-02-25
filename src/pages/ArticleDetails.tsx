@@ -35,8 +35,8 @@ const ArticleDetails = () => {
   const lines = story.split("\n");
 
   return (
-    <div className="px-[30px] py-[20px]">
-      <div className="w-full h-[300px]">
+    <div className="px-[10px] vsm:px-[30px] py-[20px]">
+      <div className="w-full h-fit md:h-[300px]">
         <img
           className="h-full w-full object-cover object-top"
           src={article?.images[0]?.url}
@@ -44,7 +44,7 @@ const ArticleDetails = () => {
         />
       </div>
 
-      <div className="my-[16px] flex justify-between text-[12px] font-[600] text-[#F5C451]">
+      <div className="my-[16px] flex justify-between items-center text-[12px] font-[600] text-[#F5C451]">
         <div className="flex flex-wrap gap-[15px]">
           {article?.categories
             .filter((_: any, index: number) => index < 3)
@@ -60,7 +60,7 @@ const ArticleDetails = () => {
         </p>
       </div>
 
-      <h1 className="text-[30px] font-medium mb-[30px] leading-[1.3] uppercase">
+      <h1 className="text-[20px] sm:text-[30px] font-bold mb-[30px] leading-[1.3] uppercase">
         {article?.headline}
       </h1>
 
