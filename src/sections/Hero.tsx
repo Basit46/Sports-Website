@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <section className="h-fit xmd:h-[356px] w-full flex flex-col xmd:flex-row gap-[24px]">
       {article ? (
-        <div className="relative h-fit xmd:h-full w-full xmd:w-[60%] xl:w-[65%] rounded-[16px] overflow-hidden">
+        <div className="relative h-[250px] vsm:h-fit xmd:h-full w-full xmd:w-[60%] xl:w-[65%] rounded-[16px] overflow-hidden">
           <img
             className="h-full w-full object-cover"
             src={article?.images[0]?.url}
@@ -48,7 +48,7 @@ const Hero = () => {
 
           <div className="absolute top-0 left-0 w-full h-full flex items-end">
             <div className="bg-black/70 w-full px-[10px] py-[5px] flex flex-col justify-between gap-[10px] items-start">
-              <p className="text-[20px] font-medium leading-[1.2]">
+              <p className="text-[14px] vsm:text-[20px] font-medium leading-[1.2]">
                 {article?.headline}
               </p>
               <Link
@@ -61,7 +61,7 @@ const Hero = () => {
           </div>
         </div>
       ) : (
-        <div className="relative h-[356px] xmd:h-full w-full xmd:w-[60%] xl:w-[65%] rounded-[16px] overflow-hidden" />
+        <Skeleton className="h-[200px]" borderRadius={16} baseColor="#1B1C21" />
       )}
 
       {match ? (
@@ -113,7 +113,7 @@ const Hero = () => {
           )}
         </div>
       ) : (
-        <Skeleton className="h-[356px]" baseColor="red" borderRadius={16} />
+        <Skeleton className="h-[200px]" borderRadius={16} baseColor="#1B1C21" />
       )}
     </section>
   );

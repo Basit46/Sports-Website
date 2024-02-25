@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #212227;
-  color: white;
-  font-family: "Inter", sans-serif;
-}
-
 @layer components {
   nav ul li {
     @apply flex gap-[16px] items-center cursor-pointer;

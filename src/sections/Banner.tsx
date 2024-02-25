@@ -9,7 +9,7 @@ import screen2 from "../assets/screen2.svg";
 
 const Banner = () => {
   return (
-    <section className="relative h-[650px] xmd:h-[350px] w-full bg-[#1B1C21] rounded-[24px]">
+    <section className="relative h-[640px] xmd:h-[350px] w-full bg-[#1B1C21] rounded-[24px]">
       <div className="relative pl-[27px] pt-[56px] z-[7]">
         <p className="text-[#F5C451] font-medium">New Platform</p>
         <p className="mt-[8px] mb-[24px] text-[28px] font-[600] leading-[36.4px]">
@@ -28,22 +28,22 @@ const Banner = () => {
 
       {/* Background Gradients */}
       <img
-        className="absolute top-0 right-0 z-[4]"
+        className="absolute top-0 h-full vsm:h-fit object-cover vsm:object-contain right-0 z-[4] "
         src={gradient4}
         alt="gradient"
       />
       <img
-        className="absolute top-0 right-[10%] z-[3]"
+        className="absolute top-0 h-full vsm:h-fit object-cover vsm:object-contain right-[10%] z-[3]"
         src={gradient3}
         alt="gradient"
       />
       <img
-        className="absolute top-0 right-[20%] z-[2]"
+        className="absolute top-0 h-full vsm:h-fit object-cover vsm:object-contain right-[20%] z-[2]"
         src={gradient2}
         alt="gradient"
       />
       <img
-        className="absolute top-0 right-[30%] z-[1]"
+        className="absolute top-0 h-full vsm:h-fit object-cover vsm:object-contain right-[30%] z-[1]"
         src={gradient1}
         alt="gradient"
       />

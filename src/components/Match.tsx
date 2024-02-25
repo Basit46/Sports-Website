@@ -10,23 +10,25 @@ const Match = ({ match, index }: { match: any; index: number }) => {
         index % 2 == 0 && "bg-[#1B1C21]"
       } cursor-pointer rounded-[8px]`}
     >
-      <td valign="middle" className="vsm:flex items-center gap-[15px]">
-        <div className="h-[32px] w-[32px]">
-          <img
-            className="w-full h-full object-cover rounded-full bg-white"
-            src={match.competitions[0].competitors[0].team.logo}
-            alt="team logo"
-          />
+      <td valign="middle">
+        <div className="flex items-center gap-[10px] vsm:gap-[15px]">
+          <div className="h-[32px] w-[32px]">
+            <img
+              className="w-full h-full object-cover rounded-full bg-white"
+              src={match.competitions[0].competitors[0].team.logo}
+              alt="team logo"
+            />
+          </div>
+          <p className="font-[500] whitespace-nowrap hidden xmd:block">
+            {match.competitions[0].competitors[0].team.name}
+          </p>
+          <p className="font-[500] whitespace-nowrap block xmd:hidden">
+            {match.competitions[0].competitors[0].team.abbreviation}
+          </p>
         </div>
-        <p className="font-[500] whitespace-nowrap hidden xmd:block">
-          {match.competitions[0].competitors[0].team.name}
-        </p>
-        <p className="font-[500] whitespace-nowrap hidden vsm:block xmd:hidden">
-          {match.competitions[0].competitors[0].team.abbreviation}
-        </p>
       </td>
 
-      <td valign="middle" align="center">
+      <td valign="middle">
         {match.status.type.state != "pre" ? (
           <div className="py-[6px] px-[16px] bg-[#F5C4511A] text-[#F5C451] rounded-[16px] text-center text-[14px] font-[600] whitespace-nowrap">
             {match.competitions[0].competitors[0].score} -{" "}
@@ -37,19 +39,21 @@ const Match = ({ match, index }: { match: any; index: number }) => {
         )}
       </td>
 
-      <td valign="middle" className="vsm:flex items-center vsm:gap-[15px]">
-        <p className="font-[500] whitespace-nowrap hidden xmd:block">
-          {match.competitions[0].competitors[1].team.name}
-        </p>
-        <p className="font-[500] whitespace-nowrap hidden vsm:block xmd:hidden">
-          {match.competitions[0].competitors[1].team.abbreviation}
-        </p>
-        <div className="h-[32px] w-[32px]">
-          <img
-            className="w-full h-full object-cover rounded-full bg-white"
-            src={match.competitions[0].competitors[1].team.logo}
-            alt="team logo"
-          />
+      <td valign="middle">
+        <div className="flex items-center gap-[10px] vsm:gap-[15px]">
+          <p className="font-[500] whitespace-nowrap hidden xmd:block">
+            {match.competitions[0].competitors[1].team.name}
+          </p>
+          <p className="font-[500] whitespace-nowrap block xmd:hidden">
+            {match.competitions[0].competitors[1].team.abbreviation}
+          </p>
+          <div className="h-[32px] w-[32px]">
+            <img
+              className="w-full h-full object-cover rounded-full bg-white"
+              src={match.competitions[0].competitors[1].team.logo}
+              alt="team logo"
+            />
+          </div>
         </div>
       </td>
 

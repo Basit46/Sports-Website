@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav
       className={`${
-        isMenuOpen ? "left-0" : "left-[-100%]"
+        isMenuOpen ? "left-0" : "left-[-100%] xl:left-0"
       } z-[100] duration-500 xl:duration-0 fixed xl:sticky top-[65px] xl:top-0 h-screen w-[300px] bg-[#14151B] border-x border-x-[#313131] pt-[24px] pb-[28px] px-[24px]`}
     >
       <Link to="/" className="hidden xl:flex items-center gap-[8px]">

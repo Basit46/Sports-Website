@@ -7,15 +7,15 @@ import { useGlobalContext } from "../context/globalContext";
 const Header = () => {
   const { isMenuOpen, setIsMenuOpen } = useGlobalContext();
   return (
-    <div className="sticky top-0 z-[20] h-[65px] bg-[#1B1C21] border-b border-b-[#313131]  px-[24px] flex justify-between items-center">
-      <div className="xl:hidden flex vsm:flex-1 items-center">
+    <div className="sticky top-0 right-0 z-[20] h-[65px] bg-[#1B1C21] border-b border-b-[#313131]  px-[24px] flex justify-between items-center">
+      <div className="xl:hidden flex-1 ">
         <Link to="/" className="flex items-center gap-[8px]">
           <img className="w-[30px] vsm:w-fit" src={logo} alt="logo" />
           <h1 className="hidden sm:block">Onesport</h1>
         </Link>
       </div>
 
-      <div className="w-[45%] xl:w-[50%] mr-[30px] xl:mr-0 bg-[#2E3034] py-[10px] px-[8px] flex items-center gap-[8px] rounded-[6px]">
+      <div className="w-[60%] vsm:w-[50%] mr-[20px] xl:mr-0 bg-[#2E3034] py-[10px] px-[8px] flex items-center gap-[8px] rounded-[6px]">
         <img src={search} alt="search icon" />
         <input
           className="bg-transparent outline-none border-none text-gray text-[12px] placeholder:text-[12px]"
