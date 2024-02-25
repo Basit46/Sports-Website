@@ -6,7 +6,6 @@ import {
   StandingsSvg,
 } from "../assets/editable-svgs";
 import logo from "../assets/logo.png";
-import chelsea from "../assets/chelsea.png";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
