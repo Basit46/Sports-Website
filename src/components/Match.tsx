@@ -35,7 +35,7 @@ const Match = ({ match, index }: { match: any; index: number }) => {
             {match.competitions[0].competitors[1].score}
           </div>
         ) : (
-          <div> VS </div>
+          <p className="text-center"> VS </p>
         )}
       </td>
 

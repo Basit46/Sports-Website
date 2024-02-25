@@ -7,6 +7,8 @@ export const LeagueCodes = [
   "uefa.europa",
   "uefa.europa.conf",
   "eng.1",
+  "eng.fa",
+  "eng.league_cup",
   "esp.1",
   "ita.1",
   "ger.1",
