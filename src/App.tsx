@@ -11,7 +11,7 @@ import Footer from "./sections/Footer";
 
 const App = () => {
   return (
-    <div className="max-w-[1400px] mx-auto flex border-t border-t-[#313131] bg-[#212227] font-Inter text-white">
+    <div className="max-w-[1400px] mx-auto flex border-t border-t-[#313131] bg-[#212227] text-white font-Inter">
       <Navbar />
 
       <main className="w-full xl:w-auto xl:flex-1">
@@ -28,7 +28,7 @@ const App = () => {
         <Footer />
       </main>
 
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   );
 };
