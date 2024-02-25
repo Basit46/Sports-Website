@@ -5,7 +5,7 @@ import { mainLeagues } from "../data/mainLeagues";
 import Club from "../components/Club";
 
 const Clubs = () => {
-  const { clubs, fetchClubs } = useGlobalContext();
+  const { clubs, fetchClubs, isClubsLoading } = useGlobalContext();
 
   const [selectedLeague, setSelectedLeague] = useState(mainLeagues[0]);
   const [isOpen, setIsOpen] = useState(false);
@@ -57,9 +57,11 @@ const Clubs = () => {
       </div>
 
       <div className="mt-[32px] flex flex-wrap justify-center gap-[15px] vsm:gap-[30px]">
-        {clubs.map((club, index) => (
-          <Club key={index} club={club} />
-        ))}
+        {isClubsLoading ? (
+          <div className="h-[50px] w-[50px] mx-auto mt-[20px] rounded-full border-t-[2px] border-t-[#F5C451] animate-spin" />
+        ) : (
+          clubs.map((club, index) => <Club key={index} club={club} />)
+        )}
       </div>
     </section>
   );

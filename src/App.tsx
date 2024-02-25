@@ -8,10 +8,12 @@ import FullStandings from "./pages/FullStandings";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./sections/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <div className="max-w-[1400px] mx-auto flex border-t border-t-[#313131] bg-[#212227] text-white font-Inter">
+      <ScrollToTop />
       <Navbar />
 
       <main className="w-full xl:w-auto xl:flex-1">

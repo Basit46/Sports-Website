@@ -12,18 +12,26 @@ const Standings = () => {
   const [selectedLeague, setSelectedLeague] = useState(mainLeagues[0]);
   const [leagueStandings, setLeagueStandings] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchStandings();
   }, [selectedLeague]);
 
   const fetchStandings = () => {
+    setIsLoading(true);
     axios
       .get(
         `https://site.web.api.espn.com/apis/v2/sports/soccer/${selectedLeague.slug}/standings`
       )
-      .then((res) => setLeagueStandings(res.data.children[0].standings.entries))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setLeagueStandings(res.data.children[0].standings.entries);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -76,38 +84,42 @@ const Standings = () => {
         </Link>
       </div>
 
-      <table className="w-full mt-[32px]">
-        <thead>
-          <tr className="">
-            <th className="w-[50%]" align="left">
-              Club
-            </th>
-            <th align="center">P</th>
-            <th align="center">W</th>
-            <th align="center">D</th>
-            <th align="center">L</th>
-            <th align="center">Goals</th>
-            <th align="center" className="hidden vsm:block">
-              Points
-            </th>
-            <th align="center" className="block vsm:hidden">
-              PTS
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {leagueStandings
-            .filter((_, index) => index < 4)
-            .map((data, index) => (
-              <Standing
-                data={data}
-                key={index}
-                index={index}
-                onFullPage={false}
-              />
-            ))}
-        </tbody>
-      </table>
+      {isLoading ? (
+        <div className="h-[50px] w-[50px] mx-auto mt-[20px] rounded-full border-t-[2px] border-t-[#F5C451] animate-spin" />
+      ) : (
+        <table className="w-full mt-[32px]">
+          <thead>
+            <tr className="">
+              <th className="w-[50%]" align="left">
+                Club
+              </th>
+              <th align="center">P</th>
+              <th align="center">W</th>
+              <th align="center">D</th>
+              <th align="center">L</th>
+              <th align="center">Goals</th>
+              <th align="center" className="hidden vsm:block">
+                Points
+              </th>
+              <th align="center" className="block vsm:hidden">
+                PTS
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {leagueStandings
+              .filter((_, index) => index < 4)
+              .map((data, index) => (
+                <Standing
+                  data={data}
+                  key={index}
+                  index={index}
+                  onFullPage={false}
+                />
+              ))}
+          </tbody>
+        </table>
+      )}
     </section>
   );
 };

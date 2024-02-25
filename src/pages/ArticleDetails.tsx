@@ -10,6 +10,7 @@ const ArticleDetails = () => {
 
   const [article, setArticle] = useState<any>();
   const [story, setStory] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setArticle(
@@ -21,12 +22,17 @@ const ArticleDetails = () => {
 
   useEffect(() => {
     if (article) {
+      setIsLoading(true);
       axios
         .get(article.links.api.news.href.replace("http", "https"))
         .then((res) => {
           setStory(res.data.headlines[0].story);
+          setIsLoading(false);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          setIsLoading(false);
+        });
     } else {
       return;
     }
@@ -64,15 +70,19 @@ const ArticleDetails = () => {
         {article?.headline}
       </h1>
 
-      <div className="article-story">
-        {lines.map((line, index) => (
-          <p
-            className="line"
-            key={index}
-            dangerouslySetInnerHTML={{ __html: line }}
-          />
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="h-[50px] w-[50px] mx-auto mt-[50px] rounded-full border-t-[2px] border-t-[#F5C451] animate-spin" />
+      ) : (
+        <div className="article-story">
+          {lines.map((line, index) => (
+            <p
+              className="line"
+              key={index}
+              dangerouslySetInnerHTML={{ __html: line }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

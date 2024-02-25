@@ -15,6 +15,8 @@ type globalContextType = {
   fetchGamesForDate: (theDate: Date) => void;
   clubs: any[];
   fetchClubs: (league: string) => void;
+  isClubsLoading: boolean;
+  setIsClubsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
@@ -23,6 +25,7 @@ const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [article, setArticle] = useState();
   const [matches, setMatches] = useState([]);
   const [clubs, setClubs] = useState([]);
+  const [isClubsLoading, setIsClubsLoading] = useState(false);
 
   //Fetch Articles
   useEffect(() => {
@@ -81,14 +84,19 @@ const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
 
   //Fetch clubs
   const fetchClubs = (league: string) => {
+    setIsClubsLoading(true);
     axios
       .get(
         `https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/teams`
       )
       .then((res) => {
         setClubs(res.data.sports[0].leagues[0].teams);
+        setIsClubsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setIsClubsLoading(false);
+      });
   };
 
   return (
@@ -102,6 +110,8 @@ const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
         fetchGamesForDate,
         clubs,
         fetchClubs,
+        isClubsLoading,
+        setIsClubsLoading,
       }}
     >
       {children}
