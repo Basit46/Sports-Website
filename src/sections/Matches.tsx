@@ -17,7 +17,7 @@ const Matches = () => {
 
   const dateList: Date[] = [];
   const getDates = () => {
-    Array.from({ length: 5 }).map((_, index) => {
+    Array.from({ length: 5 }).forEach((_, index) => {
       const date = new Date();
       const nextDate = new Date(date);
       nextDate.setDate(nextDate.getDate() + index);
@@ -44,7 +44,7 @@ const Matches = () => {
       <ul className="relative mt-[32px] flex border-b-[4px] border-[#2E3034] pb-[13px]">
         <div className="hidden xmd:flex">
           {dateList.map((theDate, index) => (
-            <li
+            <button
               className={`${currDateId == index && "active"}`}
               onClick={() => {
                 fetchGamesForDate(theDate);
@@ -54,14 +54,14 @@ const Matches = () => {
               key={index}
             >
               {theDate.toDateString()}
-            </li>
+            </button>
           ))}
         </div>
         <div className="hidden vsm:flex xmd:hidden">
           {dateList
             .filter((_, index) => index < 2)
             .map((theDate, index) => (
-              <li
+              <button
                 className={`${currDateId == index && "active"}`}
                 onClick={() => {
                   fetchGamesForDate(theDate);
@@ -71,14 +71,14 @@ const Matches = () => {
                 key={index}
               >
                 {theDate.toDateString()}
-              </li>
+              </button>
             ))}
         </div>
         <div className="flex vsm:hidden">
           {dateList
             .filter((_, index) => index < 1)
             .map((theDate, index) => (
-              <li
+              <button
                 className={`${currDateId == index && "active"}`}
                 onClick={() => {
                   fetchGamesForDate(theDate);
@@ -88,7 +88,7 @@ const Matches = () => {
                 key={index}
               >
                 {theDate.toDateString()}
-              </li>
+              </button>
             ))}
         </div>
 

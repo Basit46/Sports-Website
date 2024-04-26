@@ -50,7 +50,7 @@ const FullStandings = () => {
             } absolute bg-[#212227] px-[5px] left-0 top-[35px] h-fit w-full border-white border-[1px]`}
           >
             {mainLeagues.map((league, index) => (
-              <span
+              <button
                 onClick={() => {
                   setSelectedLeague(league);
                   setIsOpen(false);
@@ -59,7 +59,7 @@ const FullStandings = () => {
               >
                 <img src={league.logo} alt="league" />
                 <p>{league.name}</p>
-              </span>
+              </button>
             ))}
           </div>
         </div>

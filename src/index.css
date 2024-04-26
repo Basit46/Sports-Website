@@ -9,13 +9,13 @@
     @apply flex gap-[16px] items-center cursor-pointer;
   }
 
-  .matches ul li {
+  .matches ul button {
     @apply relative px-[20px] text-gray cursor-pointer;
   }
-  .matches ul li.active {
+  .matches ul button.active {
     @apply font-[500] text-white;
   }
-  .matches ul li.active::after {
+  .matches ul button.active::after {
     content: "";
     position: absolute;
     top: 0;
@@ -50,10 +50,10 @@
   .leagues-dropdown {
     @apply py-[5px] flex flex-col gap-[8px];
   }
-  .leagues-dropdown span {
+  .leagues-dropdown button {
     @apply flex gap-[20px] items-center cursor-pointer  hover:underline;
   }
-  .leagues-dropdown span img {
+  .leagues-dropdown button img {
     @apply w-[24px];
   }
 }

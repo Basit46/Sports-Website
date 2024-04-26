@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const Product = () => {
   return (
-    <div
+    <button
       onClick={() => toast("Coming soon")}
       className="cursor-pointer w-full sm:w-[223px]"
     >
@@ -14,7 +14,7 @@ const Product = () => {
         <p className="mb-[8px] font-medium">Chelsea Home Kit 21 / 22</p>
         <p className="text-[#F5C451] text-[18px] font-medium">$150.10</p>
       </div>
-    </div>
+    </button>
   );
 };
 
